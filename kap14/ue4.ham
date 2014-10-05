@@ -1,0 +1,45 @@
+/*imperative program*/int koerner = 0;
+int koernerImMaul = 0;
+
+void main() {
+    sammelnUndZaehlen();
+    rechneUndLaufe();
+}
+
+void sammelnUndZaehlen(){
+	nimm();
+	while(vornFrei()){
+		vor();
+		while(kornDa()){
+			nimm();
+			koerner++;
+		}
+	}
+}
+
+void rechneUndLaufe(){
+	int koernerHaelfte = koerner/2;
+	while(koernerHaelfte>0){
+		gib();
+		koernerImMaul++;
+		koernerHaelfte--;
+		koerner--;
+	} 
+	rechtsUm();
+		while(vornFrei()){
+			vor();
+		}
+		while(koernerImMaul>0){
+			gib();
+			koerner--;
+			koernerImMaul--;
+		} 
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+}
+
+
+

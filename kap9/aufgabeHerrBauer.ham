@@ -1,0 +1,30 @@
+/*imperative program*/void main() {
+	while(kornDa()){
+		nimm();
+	}
+	while(!kornDa()){
+	vorUndKornLegen();
+	vorUndKornLegen();
+	vorUndKornLegen();
+	vorUndKornLegen();	
+
+	/*
+	* TEST OB Hamster ohne Körner hinlegen weitergehen würde
+	*/
+	vorUndKornLegen();
+	vorUndKornLegen();
+	vorUndKornLegen();
+	vorUndKornLegen();			
+	}	
+	
+}
+
+void vorUndKornLegen(){
+	while (vornFrei()){
+		 vor();
+		while(!kornDa()){
+			gib();
+		}
+	} 
+	linksUm();
+}

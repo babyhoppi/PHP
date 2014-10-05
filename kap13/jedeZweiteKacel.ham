@@ -1,0 +1,12 @@
+/*imperative program*/void main() {
+	boolean kornLegen = true;
+	
+	while( vornFrei()){
+		vor();
+		if(kornLegen == true){
+			gib();
+		}
+			//aus False wird true und umgedreht
+			kornLegen =!kornLegen;
+	}
+}

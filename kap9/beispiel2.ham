@@ -1,0 +1,18 @@
+/*imperative program*/void main() {
+   while(vornFrei()){
+    if(kornDa()){
+    	nimm();
+    	linksUm();
+   		test();
+    }	else {
+    		test();  
+   		}
+   	}
+   	schreib("Feritg");
+}
+
+void test() {
+	if(vornFrei()){
+    	vor();
+    }
+}

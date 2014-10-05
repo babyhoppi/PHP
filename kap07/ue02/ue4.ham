@@ -1,0 +1,45 @@
+/*imperative program*/void main() {
+	for (int i=0; i<100;i++){
+		nimm();
+	} 
+	vor(); 
+	for (int i=0; i<6;i++){
+		hoch();
+		gib();
+	} 
+	for (int i=0; i<6;i++){
+		runter();
+	}  
+	for (int i=0; i<4;i++){
+		vor();
+	}
+}
+/*
+** Hamster läuft den berg hoch
+*/
+void hoch() {
+	linksUm();
+	vor();
+	rechtsUm();
+	vor();
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void rechtsUmRunter(){
+	linksUm();
+
+}
+/*
+** Hamster läuft den berg runter
+*/
+void runter() {
+	vor();
+	rechtsUm();
+	vor();
+	rechtsUmRunter();
+}

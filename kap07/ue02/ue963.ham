@@ -1,0 +1,31 @@
+/*imperative program*/void main() {
+
+	for(int i=0; i<129;i++){
+
+		if(vornFrei()) {
+			vor();
+		} else {
+			linksUm();
+			vor();
+		}
+	
+		if (kornDa()) {
+			nimm();
+			linksUm();
+			vornFrei();
+				if(vornFrei()) {
+			vor();
+			linksUm();
+		} else {
+			linksUm();
+			linksUm();
+			
+		}
+		}
+	
+		if (! maulLeer()) {
+		//	gib();
+		}
+    }
+    schreib("fertig");
+}

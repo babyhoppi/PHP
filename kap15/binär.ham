@@ -1,0 +1,54 @@
+/*imperative program*/boolean ueberhang= false;
+int koerner = 0;
+
+void main() {
+    while(vornFrei()){
+		sicheresVor();
+		sicheresZurueck();
+		rechnen();
+	}
+}
+
+void kehrt(){
+	linksUm();
+	linksUm();
+}
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void sicheresZurueck(){
+	kehrt();
+	while(vornFrei()){
+		vor();
+	}
+	rechtsUm();
+}
+
+void rechnen(){
+	if(ueberhang){
+		vor();
+		rechtsUm();
+	}
+}
+
+void sicheresVor(){
+	while(vornFrei()){
+		vor();
+		koernerDa();
+	}
+}
+
+void koernerDa(){
+int tmp =
+	if(kornDa()){
+		koerner++;
+	}
+	if(koerner==2){
+		ueberhang = !ueberhang;
+		koerner = 0;
+	}
+
+}

@@ -1,0 +1,104 @@
+/*imperative program*/void main() {
+	geheEckeRechtsUnten();
+    while(vornFrei()){
+	    reiheVorUndDrehen();
+    	reiheZurückUndDrehen();
+    }
+    
+}
+
+void pruefeObInDerEcke(){
+	if(!vornFrei()){
+		linksUm();
+		pruefeKorn();
+		}
+}
+
+void geheEckeRechtsUnten(){
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+}
+
+void Ende(){
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+}
+
+void reiheVorUndDrehen() {
+	while(vornFrei()){
+	//TEST
+		if(!kornDa()){
+		gib();
+		}
+		vor();
+		if(!vornFrei()){
+		} 	else {
+			//pruefeKorn();
+    		vor();	
+    			if(!kornDa()){
+		gib();
+		}
+			}
+	
+	
+	//	pruefeKorn();	
+	}
+	while(!vornFrei()){
+		linksUm();
+			if(!vornFrei()){
+			pruefeObInDerEcke();
+		} else {
+		//pruefeKorn();
+		gib();
+    	vor();
+		linksUm();
+		}	
+	}
+	
+}
+
+void reiheZurückUndDrehen() {
+	while(vornFrei()){
+		//pruefeKorn();
+		vor();
+		//pruefeKorn();
+		if(!vornFrei()){
+		} else {
+		//pruefeKorn();
+		gib();
+    	vor();	
+		}
+	}
+	while(!vornFrei()){
+		rechtsUm();
+		if(!vornFrei()){
+			pruefeKorn();
+			schreib("FERTIG");
+			break;
+		} else {
+			pruefeKorn();
+    		vor(); 
+			rechtsUm();
+		}
+	}	
+}
+
+void pruefeKorn(){
+	while(kornDa()){
+		nimm();
+	}
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}

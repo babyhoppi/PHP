@@ -1,0 +1,101 @@
+/*imperative program*/boolean links = true;
+int imMaul =0;
+
+void main() {
+    geheEckeRechtsUnten();
+    
+	while(vornFrei()){
+    	sicheresVor();
+    	wenden();
+    }
+}
+
+void kornAuf(){
+int koerner = 0;
+int durchDrei =0;
+int neuAusgeben = 0;
+		
+	while(kornDa()){
+		nimm();
+		koerner++;
+		imMaul++;
+	}
+	durchDrei= koerner % 3;
+	neuAusgeben = koerner - durchDrei;
+	if(koerner % 3 == 0){
+		while(koerner > 0){
+			gib();
+			koerner--;
+			neuAusgeben--;
+			imMaul--;
+		}
+	}
+	while(neuAusgeben > 0){
+		gib();
+		neuAusgeben--;
+		imMaul--;
+	}
+	if(imMaul % 3 == 0){
+		while(imMaul > 0){
+			gib();
+			imMaul--;
+		}
+	}
+}
+
+void sicheresVor(){
+	while(vornFrei()){
+		vor();
+		kornAuf();
+	}
+}
+
+void wenden(){
+	if(links == true){
+		linksUm();
+		if(vornFrei()){
+		vor();
+		kornAuf();
+		linksUm();
+		}
+		links = !links;
+	}else {
+		rechtsUm();
+		if(vornFrei()){
+		vor();
+		kornAuf();
+		rechtsUm();
+		}
+		links = !links;
+	
+	}
+
+
+}
+
+void geheEckeRechtsUnten(){
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+	while(!maulLeer()){
+		gib();
+	}
+	kornAuf();
+}
+
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void kehrt(){
+	linksUm();
+	linksUm();
+}

@@ -1,0 +1,79 @@
+/*imperative program*//**
+*	Der Hamster muss so stehen, dass er in den Gang hinein schaut
+*
+*/
+int laenge =0;
+boolean rechtsFrei =false;
+boolean linksFrei =false;
+
+int ermittleLaenge(){
+	
+	while(vornFrei()){
+		vor();
+		laenge++;
+	}
+	linksUm();
+	linksUm();
+	
+	while(vornFrei()){
+		vor();
+	}
+	return laenge;
+}
+
+void main() {
+
+	//der Hamster läuft von links nach rechts
+	// und ermittelt für jeden gefundenen Gang die Länge
+	// und legt an der Abzweigung eine entsprechende Anzahl an Körner aus
+	
+	while(vornFrei()){
+		rechtsFrei = false;
+		linksFrei = false;
+		vor();
+		if (rechtsFrei() || linksFrei()){
+			
+			//ermittle die Länge des Gänges
+			ermittleLaenge();
+			// lege die entsprechende Anzahl Körner ab
+			while(laenge > 0){
+				gib();
+				laenge--;
+			}
+		}
+		if(rechtsFrei == true){
+			rechtsUm();
+		}
+		if(linksFrei == true){
+			linksUm();
+		}
+	}
+}
+
+boolean rechtsFrei(){
+	rechtsUm();	
+	if(vornFrei()) {
+		rechtsFrei = true;
+		return true;	
+	} else {
+	linksUm();
+		return false;
+	}
+}
+
+boolean linksFrei(){
+	linksUm();	
+	if(vornFrei()) {
+		linksFrei= true;
+		return true;
+	} else {
+	rechtsUm();
+		return false;
+	}
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}

@@ -1,0 +1,11 @@
+/*imperative program*/void main() {
+
+	for(int i=0; i<1000;i++){
+    if (vornFrei()) {
+    	kornDa();
+    	vor();
+    } else {
+    	linksUm();
+    }
+    }
+}

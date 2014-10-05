@@ -1,0 +1,46 @@
+/*imperative program*/boolean rechtsFrei = false;
+boolean jedesZweite = true;
+
+void main() {	
+	while( vornFrei()){
+		vor();
+		pruefeObRechtsFrei();
+		if(rechtsFrei == true){
+			if(jedesZweite == true){
+				gibKornAus();
+			}
+				jedesZweite = !jedesZweite;
+		}
+	}
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void kehrt(){
+	linksUm();
+	linksUm();
+}
+
+void pruefeObRechtsFrei(){
+	rechtsUm();	
+	if(vornFrei()) {
+		linksUm();
+		rechtsFrei = true;
+	} else {
+		linksUm();
+		rechtsFrei =false;
+	}
+}
+
+void gibKornAus(){
+	rechtsUm();
+	vor();
+	gib();
+	kehrt();
+	vor();
+	rechtsUm();
+}

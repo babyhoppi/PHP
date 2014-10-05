@@ -1,0 +1,34 @@
+/*imperative program*/void main() {
+	while(vornFrei()){
+		laufeBisBerg();
+	}
+    
+}
+
+void laufeBisBerg(){
+	while(vornFrei()){
+		 pruefeKachel();
+	}
+	while(!vornFrei()){
+		drehen90();
+		while(vornFrei()){
+			vor();
+			 pruefeKachel();
+		}
+		
+	}
+}
+
+void pruefeKachel(){
+	drehen270();
+		if(!vornFrei()){
+			drehen90();
+			if(vornFrei()){
+			vor();}
+			drehen270();
+			
+		}
+}
+void drehen90(){linksUm();}
+void drehen180(){linksUm();	linksUm();}
+void drehen270(){linksUm();	linksUm();	linksUm();}

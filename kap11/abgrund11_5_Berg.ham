@@ -1,0 +1,46 @@
+/*imperative program*/void main() {
+	while(!untenFrei()){
+		if(vornFrei()&& untenFrei()){
+			vor();
+		}
+	if(!untenFrei() && vornFrei()){
+		linksUm();
+		linksUm();
+		vor();
+		linksUm();
+		linksUm();
+		break;
+	}
+	if(!vornFrei()){
+		erklimmeStufe();
+	}}
+}
+
+
+
+boolean untenFrei(){
+	rechtsUm();
+	if(vornFrei()){
+		linksUm();
+		return true;
+	} else {
+		linksUm();
+			if(vornFrei()){
+				vor();
+			}
+		return false;
+	}
+}
+
+void erklimmeStufe(){
+	linksUm();
+	vor();
+	rechtsUm();
+	vor();
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}

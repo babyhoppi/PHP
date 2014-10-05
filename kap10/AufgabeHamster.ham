@@ -1,0 +1,45 @@
+/*imperative program*/void main() {
+	
+	while( laufeBisBerg() ) {
+    		while( rechtsMauer() ) {
+      			vor();
+    		}
+    	rechtsUm();
+  	}
+  kehrt();
+  vor();
+  kehrt();
+ }
+
+boolean laufeBisBerg() {
+  while(vornFrei()) {
+    vor();
+    if( !rechtsMauer() )
+      return false;
+  }
+  linksUm();
+  return true;
+}
+
+boolean rechtsMauer() {
+  rechtsUm();
+  if( !vornFrei() ){
+    linksUm();
+    return true;
+  }
+  else {
+    linksUm();
+    return false;
+  }
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void kehrt(){
+	linksUm();
+	linksUm();
+}

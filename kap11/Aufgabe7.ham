@@ -1,0 +1,95 @@
+/*imperative program*/void main() {
+    	while (maulLeer()){    
+     		if(maulLeer()){
+     			vorBisMauer();
+     		}
+     		if (maulLeer()){    
+     			laufeObenLang();
+     		}
+     		if (maulLeer()){    
+     			vorBisMauer();
+     		}
+     		if (maulLeer()){    
+     			laufeUntenLang();
+     		}
+     }
+}
+
+/*
+** vor bis Mauer und prüfe ob korn da ist.
+*/
+void vorBisMauer(){
+	while (vornFrei() && maulLeer()){
+		vor();
+		pruefeKorn();
+	}
+}
+
+boolean pruefeKorn(){
+	if (kornDa()){
+		nimm();
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/*
+** Unterer Weg
+*/
+void laufeObenLang(){
+	linksUm();
+	vor();
+	pruefeKorn();
+	rechtsUm();
+	vor();
+	pruefeKorn();
+	while (!rechtsFrei()){
+		vor();
+		pruefeKorn();
+	}
+}
+
+boolean rechtsFrei(){
+	rechtsUm();	
+	if(vornFrei()) {
+		vor();
+		linksUm();
+		return true;
+	} else {
+		linksUm();
+		return false;
+	}
+}
+
+/*
+** Unterer Weg
+*/
+void laufeUntenLang(){
+	rechtsUm();
+	vor();
+	pruefeKorn();
+	linksUm();
+	vor();
+	pruefeKorn();
+	while (!linksFrei()){
+		vor();
+		pruefeKorn();
+	}
+}
+
+boolean linksFrei(){
+	linksUm();	
+	if(vornFrei()) {
+		vor();
+		pruefeKorn();
+		rechtsUm();
+		return true;
+	} else {
+		rechtsUm();
+		return false;
+	}
+}
+
+void kehrtUm(){	linksUm();linksUm();}
+void rechtsUm() {linksUm();linksUm();linksUm();}

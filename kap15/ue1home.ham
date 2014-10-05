@@ -1,0 +1,130 @@
+/*imperative program*/int tmp =0;
+boolean uebertrag = false;
+boolean keinKorn = false;
+void main() {
+do{
+sicheresVorUndNimm();
+sicheresZurueck();
+gebenUndEinsVor();
+}
+while(vornFrei());
+ergebnis();
+}
+void gebenUndEinsVor(){
+if(tmp < 2 && uebertrag == false){
+if(!kornDa() && keinKorn== true&& uebertrag == false){
+gib();
+keinKorn = !keinKorn;
+}
+}
+vor();
+rechtsUm();
+if(tmp == 2 && uebertrag == true){
+gib();
+uebertrag = !uebertrag;
+}if(tmp == 2 && uebertrag == true && keinKorn== false){
+gib();
+uebertrag = !uebertrag;
+}
+tmp = 0;
+}
+void sicheresZurueck(){
+kehrt();
+while(vornFrei()){
+vor();
+}
+rechtsUm();
+}
+void sicheresVorUndNimm(){
+while(vornFrei()){
+vor();
+if(kornDa()){
+nimm();
+tmp++;
+}
+if(tmp == 1) {
+keinKorn = true;
+}
+if(tmp == 2){
+uebertrag = true;
+}
+}
+}
+void kehrt(){
+linksUm();
+linksUm();
+}
+void rechtsUm(){
+linksUm();
+linksUm();
+linksUm();
+}
+void ergebnis(){
+int result = 0;
+rechtsUm();
+while(vornFrei()){
+vor();
+}
+kehrt();
+if(vornFrei()){
+if(kornDa()){
+result= result + 1;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 2;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 4;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 8;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 16;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 32;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 64;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 128;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 256;
+}
+vor();
+}
+if(vornFrei()){
+if(kornDa()){
+result= result + 512;
+}
+vor();
+}
+schreib("Das Ergebnis ist: "+result);
+}

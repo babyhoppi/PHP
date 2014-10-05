@@ -1,0 +1,74 @@
+/*imperative program*/void main() {
+
+/*
+* Hamster legt ein Sachmuster auf.
+***** HINWEIS: der Hamster kann sich auf jeder beliebigen Kachel befinden und in jede Richtung schauen.******* 
+*/
+
+
+	geheEckeRechtsUnten(); 	//Prozedur geheEckeRechtsUnten wird aufgerufen damit der Hamster in eine Ecke läuft
+	while(vornFrei()){		// solange Frei ist wird die While Schleife ausgeführt
+		reiheEins();
+	 	reiheZwei();
+	}
+}
+
+void reiheEins(){
+	while(vornFrei()){				//prüfe durch vornFrei() ob das nächste Feld frei ist wenn ja dann
+		gib();						// gib ein Korn aus
+		vor();						// und geh ein Feld vor
+		if(vornFrei()){					// wenn dann das Feld davor frei ist dann
+			vor();						// geh noch ein Feld vor
+		}if(!vornFrei()){			// wenn das Feld nicht frei ist dann 
+			linksUm();
+			gib();					// dreh dich linksUm
+				if(vornFrei()){		// wenn das Feld dann frei ist
+					vor();				// gehe eins vor
+				}	
+			linksUm();				// dreh dich dann nochmal links um
+			break;
+		}
+	}
+}
+
+/*
+* Prozedur reiheZwei() ist identisch wie Prozedur reiheEins() nur das sich der Hamster
+* nach rechts dreht. 
+*/
+void reiheZwei(){
+	while(vornFrei()){				//prüfe durch vornFrei() ob das nächste Feld frei ist wenn ja dann
+		vor();						
+		gib();						
+		if(vornFrei()){					// wenn dann das Feld davor frei ist dann
+			vor();						// geh noch ein Feld vor
+		}if(!vornFrei()){			// wenn das Feld nicht frei ist dann 
+			rechtsUm();					// dreh dich linksUm
+				if(vornFrei()){		// wenn das Feld dann frei ist
+					vor();				// gehe eins vor
+				}	
+			rechtsUm();				// dreh dich dann nochmal links um
+			break;
+		}
+	}
+}
+/*
+* Es wird geprüft ob der Hamster sich in einer Ecke befindet, wenn nicht soll er in eine Ecke gehen 
+*/
+void geheEckeRechtsUnten(){
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+}
+/*
+* Hamster dreht sich 3 Mal links damit er nach rechts gedreht ist
+*/
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}

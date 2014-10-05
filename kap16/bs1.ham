@@ -1,0 +1,26 @@
+/*imperative program*/void main() {
+    	schritte(4,90);
+    	schritte(6,90);
+    	schritte(2,90);
+    	schritte(5,90);
+    	schritte(8,90);
+    	if(kornDa()){
+    		nimm();
+    	}
+
+}
+
+void schritte(int i,int grad){
+int anzahlSchritte=0;
+	while( anzahlSchritte < i){
+		vor();
+		anzahlSchritte++;
+	}
+	int drehungen = (grad/90);
+	int x=0;
+	
+		while(x < drehungen){
+			linksUm();
+			x++;
+		}
+}

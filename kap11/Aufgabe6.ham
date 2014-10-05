@@ -1,0 +1,34 @@
+/*imperative program*/void main() {
+	gib();
+	vor();
+	linksUm();
+	
+	while (vornFrei() || !linksFrei()){
+		gib();
+		if( !linksFrei()){
+			linksUm();
+		}
+		vor();		
+	}
+	gib();	
+}
+
+boolean linksFrei(){
+	linksUm();
+	vor();
+	
+	if(kornDa()) {
+		kehrtUm();
+		vor();
+		linksUm();
+		return true;
+	} else {
+		kehrtUm();
+		vor();
+		linksUm();
+		return false;
+	}
+}
+
+void rechtsUm(){linksUm();linksUm();linksUm();}
+void kehrtUm(){	linksUm();linksUm();}

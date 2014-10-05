@@ -1,0 +1,87 @@
+/*imperative program*/void main() {
+	koernerNehmen();
+	reihenCheck();
+	reihenCheck();
+	reihenCheck();
+	reihenCheck();
+}
+
+
+void drehen180(){
+	linksUm();
+	linksUm();
+}
+
+void drehen270(){
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void koernerNehmen() {
+	 drehen180();
+	 vor();
+	 if(kornDa()){
+	 	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();	nimm();nimm();	nimm();nimm();	nimm();
+	 }
+	 drehen180();
+	 vor();
+	 vor();
+	 drehen270();
+}
+
+void einVor(){
+	vor();
+}
+
+void zweiVor(){
+	vor();
+	vor();
+}
+
+void runterOderDrehen() {
+	if(vornFrei()){
+		vor();
+		if(!kornDa()){
+			gib();
+		}
+	} 	else {
+			wiederHoch();
+		}
+}
+
+void reihenCheck() {
+	runterOderDrehen();
+	runterOderDrehen();
+	runterOderDrehen();
+	runterOderDrehen();
+}
+
+void wiederHoch(){
+	drehen180();
+	zweiVor();
+	einVor();
+	drehen270();
+	if(vornFrei()){
+		vor();
+		drehen270();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

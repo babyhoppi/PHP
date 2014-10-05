@@ -1,0 +1,46 @@
+/*imperative program*/boolean west = false;
+boolean south = false;
+boolean east = false;
+boolean north = false;
+
+void main() {
+	geheEckeRechtsUnten();
+	//east();
+  	if(west == true){
+  		schreib("Ich schaue nach westen:-)");
+  	}
+   	if(south == true){
+  		schreib("Ich schaue nach süden:-)");
+  	}
+   	if(east == true){
+  		schreib("Ich schaue nach osten:-)");
+  	}
+   	if(north == true){
+  	schreib("Ich schaue nach norden:-)");
+  	}
+}
+
+boolean rechtsFrei(){
+	rechtsUm();
+	if(vornFrei()){
+	return true;
+	} else {
+	return false;
+	}
+}
+
+void geheEckeRechtsUnten(){
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+	while(vornFrei()){
+		vor();
+	south = true;
+	
+	}
+	
+}
+
+void rechtsUm() {linksUm();linksUm();linksUm();}
+void east() {linksUm();east = true;south = false;}

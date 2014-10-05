@@ -1,0 +1,13 @@
+/*imperative program*/void main() {
+    
+    // Der Hamster soll 4 Schritte ausführen
+    for (int i=0;i<4;i++){
+	    for (int v=0;v<4;v++){
+	    	vor();
+    	}
+     	for (int v=0;v<3;v++){
+	    	linksUm();
+    	}
+    	
+    }
+}

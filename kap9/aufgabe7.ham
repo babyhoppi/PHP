@@ -1,0 +1,35 @@
+/*imperative program*/void main() {
+	while(vornFrei()){
+	reiheVor();
+	if(vornFrei()){
+		vor();
+		drehen270();
+	} 	else { 
+			schreib("Ich habe glaube ich alle");
+		}
+    }
+}
+
+void reiheVor() {
+	while(vornFrei()){
+   		if(kornDa()){
+    		nimm();
+    	} else {
+    		vor();}
+    } 	if(kornDa()){
+    		nimm();
+    	}
+    	zurueck();
+}
+
+void zurueck() {
+	drehen180();
+	while(vornFrei()){
+		vor();
+	}
+	drehen270();
+}
+
+void drehen180() {linksUm();linksUm();}
+void drehen90() {linksUm();}
+void drehen270() {linksUm();linksUm();linksUm();}

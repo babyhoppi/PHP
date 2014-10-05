@@ -1,0 +1,228 @@
+/*imperative program*//*
+*	Der Hamster soll ein Haus bauen mit den Körner die er im Maul hat.
+*			-	er geht in eine Ecke und berrechnet dadurch das Turitorium
+*			-	er zählt dann die Körner die er im Maul hat
+*			- 	daraus berrechnet er welche Größe er bauen kann
+*	WICHTIGE FAKTOREN ZUM BERRECHNEN SIND ALSO: Höhe, Breite und die Anzahl der Körner
+*/
+
+
+//**********Beginn globale Variable**********
+int hoeheT =0;			//wird durch die Prozedur vermesseTeritorium gesetzt
+int breiteT =0;			//wird durch die Prozedur vermesseTeritorium gesetzt
+int koernerImMaul =0;	//wird durch die Prozedur vermesseTeritorium gesetzt
+int hausLange= 0;  		//wird durch die Funktion berechneMaxHausGroesse gesetzt
+//**********Ende globale Variable**********
+
+
+//**********Beginn der MAIN-Prozedur**********
+void main() {
+    geheEckeRechtsUnten();
+    vermesseTeritorium();
+    gibInfo();
+    if(koernerImMaul<9){
+    	schreib(" Es befinden sich nur "+ koernerImMaul +" Körner im Maul damit kann ich kein Haus bauen");
+	} else{
+    	baueQuadrat();
+    	baueDach(hausLange);
+    }
+    schreib("Vielen Dank für das Spiel");
+}
+//**********Ende der MAIN-Prozedur**********
+
+//**********Beginn der berechneMaxHausGroesse-Funktion**********
+/*
+*	Die Funktion berechneMaxHausGroesse berechnet wie groß das Haus sein kann und darf.
+*	Dadurch wird die HausLänge errechnet die in anderen Prozeduren eine wichtige Rolle spielt
+*/
+
+int berechneMaxHausGroesse(){
+	int n=0;
+		if(hoeheT>=breiteT+breiteT/2){
+			if(breiteT ==3){
+				n=breiteT;
+				n =	checkKornImMaul(n);
+			}else {
+				n=breiteT;
+				while((5*n-6)>koernerImMaul){
+				n = n-2;
+			}		
+		}
+		}
+		if(hoeheT<breiteT+breiteT/2 || hoeheT == breiteT){
+			if(hoeheT%2==0){
+				if(hoeheT % 4 == 0 || hoeheT % 3 == 0){
+					n=2*hoeheT/3-1;
+					if(n%2 ==0){
+						n=2*hoeheT/3;
+					}						
+					n =	checkKornImMaul(n);
+				}
+				else{
+					n=2*hoeheT/3-1;
+					if(n%2 ==0){
+						n= n-1;
+					}
+					n =	checkKornImMaul(n);
+				}
+			}
+			else{
+				if(hoeheT % 3 == 0){
+					if(hoeheT ==3){
+						n=hoeheT;
+					}else {
+						n=2*hoeheT/3-1;
+						n =	checkKornImMaul(n);
+					}
+				}else{
+					n=2*hoeheT/3;
+					n =	checkKornImMaul(n);
+				}		
+			}
+		}	
+	hausLange= n;	
+	return n;
+}
+
+//**********Ende der berechneMaxHausGroesse-Funktion**********
+
+
+//**********Beginn der baueQuadrat-Prozeduren**********
+
+/*
+*	Der Hamster baut das Quadrat und das Dach
+*/
+
+void baueQuadrat(){
+	int strecke = 4;
+	int legeKorn = 0;
+	int schritte = hausLange;
+	
+	while(strecke > 0) {
+		while(legeKorn < hausLange){
+			if(!kornDa()){
+				gib();
+			}
+			legeKorn++;
+			if(legeKorn<hausLange){
+				vor();
+			}
+		}
+		legeKorn=0;	
+		strecke--;
+		linksUm();
+	}
+	linksUm();
+	schritte--;
+	while(schritte > 0){
+		vor();
+		schritte--;
+	}
+}
+//**********Ende der baueQuadrat-Prozeduren**********
+
+//**********Beginn der baueDach-Prozeduren**********
+void baueDach(int hausLange){
+	int zaehler=1;
+	while(zaehler*2<hausLange){	
+		stufe();
+		kornLegen();
+		zaehler++;
+	}
+	rechtsUm();
+	zaehler=1;
+	
+	while(zaehler*2<hausLange){
+		stufe();
+		kornLegen();
+		zaehler++;		
+	}		
+}
+//**********Ende der baueDach-Prozeduren**********
+
+//**********Beginn der vermesseTeritorium-Prozeduren**********
+
+/*
+*	Der Hamster vermisst das Areal und gibt einmal die Körner aus und sammelt Sie dann wieder ein.
+*/
+void vermesseTeritorium(){
+	while(vornFrei()){
+		vor();
+		breiteT++;
+	}
+	linksUm();
+	breiteT++;
+	while(vornFrei()){
+		vor();
+		hoeheT++;
+	}
+	linksUm();
+	hoeheT++;
+	while(!maulLeer()){
+		gib();
+		koernerImMaul++;
+	}
+	while(kornDa()){
+		nimm();
+	}
+}
+//**********Ende der vermesseTeritorium-Prozeduren**********
+
+//**********Beginn der geheEckeRechtsUnten-Prozeduren**********
+void geheEckeRechtsUnten(){
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();
+	while(vornFrei()){
+		vor();
+	}
+	linksUm();	
+}
+//**********Ende der geheEckeRechtsUnten-Prozeduren**********
+
+//**********Beginn der checkKornImMaul-Funktion**********
+/*
+*	Diese Funktion erwartet als Parameter einen Integer Wert und gibt diesen dann zurück
+*	Es wird anhand der Körner im Maul berrechnet welche Breite das Haus haben kann
+*/
+int checkKornImMaul(int n){
+	while((5*n-6)>koernerImMaul){
+		n = n-2;
+	}
+	return n;
+}
+//**********Ende der checkKornImMaul-Funktion**********
+
+//**********Beginn der Hilfs-Prozeduren**********
+/*
+*	Der Hamster nutzt die Prozeduren als Hilfe und kann sich so drehen
+*/
+void kehrt(){
+	linksUm();
+	linksUm();
+}	
+
+void rechtsUm(){
+   linksUm();	
+   linksUm();
+   linksUm();
+}
+
+void stufe(){
+	vor();
+	rechtsUm();
+	vor();
+	linksUm();
+}
+
+void kornLegen(){
+	if(!kornDa()){
+		gib();
+	}
+}
+void gibInfo(){
+	schreib("Ich habe: "+ koernerImMaul+ " Körner im Maul und kann ein Haus bauen mit der Größe von:" +  berechneMaxHausGroesse());
+//**********Ende der Hilfs-Prozeduren**********
+// die letzte } Klammer muss sein da er es sonst nicht kompiliert :-)
+}

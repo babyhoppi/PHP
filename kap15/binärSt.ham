@@ -1,0 +1,70 @@
+/*imperative program*//*
+*	Der Hamster ist ein Taschenrechner und kann binär und dual rechnen
+*/
+
+//globale Variable
+int summe=0;
+int koernerAblegen=0;
+int basis=10;
+
+//in der Main wird nur die Prozedur rechne aufgerufen solange vorne frei ist
+void main() {
+	while(vornFrei()){						//solange vorneFrei ist rufe die Prozedur
+   		rechne();							// rechne auf
+	}
+}
+
+void rechne(){
+	summe = summe + count();				// die summe wird berechnet und die Prozedur count wird ausgeführt
+  	rechtsUm();								
+  	koernerAblegen= summe % basis;    		// es wird berechnet wie viele Körner der Hamster ablegen soll z.B 18 % 10 = 1 Rest 8 also 8
+  	while(koernerAblegen>0){
+   		gib();								// es werden solange Körner abgelegt, solange die Variable koernerAblegen >0 ist
+  		koernerAblegen--;
+  	}
+  	summe = summe/basis;					// die neue Summe ohne Kommastellen wird berechnet also 18/10 = 1,8 Nachkomma wird gesrichen also 1 
+  	vor();									//damit ist der Übertrag gleich 1
+  	rechtsUm();
+}
+
+/*
+*	Din der Prozedur werden die Körner auf der Kachel gezählt --> an die Variablen übergeben --> wieder ausgelegt
+*/
+int count(){
+int tmp=0, counter=0, gesamt=0;	
+
+	while(vornFrei()){	
+		vor();		
+		while(kornDa()){
+			nimm();	
+			tmp++;	
+		}	
+		gesamt= gesamt + tmp;
+		counter = tmp;	
+		tmp = 0;	
+		while(counter>0){	
+			gib();	
+			counter--;
+		}
+	}
+	kehrt();
+	while(vornFrei()){
+		vor();	
+	}
+	return gesamt;						// gibt die Anzahl zurück und bildet zusammen mit dem möglichen Übertrag die neue Summe Zeile 18
+}
+
+/*
+*	Der Hamster nutzt die Prozeduren als Hilfe und kann sich so drehen
+*/
+void kehrt(){
+	linksUm();
+	linksUm();
+}	
+
+void rechtsUm(){
+   linksUm();	
+   linksUm();
+   linksUm();
+}
+

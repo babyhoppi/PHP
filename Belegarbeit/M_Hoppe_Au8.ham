@@ -1,0 +1,85 @@
+/*imperative program*/int width=1, height=1, corn=0;
+void main() {
+	corn = corn + countCorn();
+    schreib("Fläche: " + getArea() + " Körner: " + corn + " Breite: " + width + " Hoehe: " + height + "Größe" +  howBigCanTheHouseBe());
+    
+}
+	int howBigCanTheHouseBe(){
+		int n=0;
+			if(height>width+width/2){
+				n=width;
+				while((5*n-6)>corn){
+					n -= 2;
+				}
+			}
+			if(height<width+width/2 || height == width){
+				if(height%2==0){
+					if(height % 4 == 0){
+						n=2*height/3-1;
+						while((5*n-6)>corn){
+							n -= 2;
+						}
+					}
+					else{
+						n=2*height/3+1;
+						while((5*n-6)>corn){
+							n -= 2;
+						}
+					
+					}
+				}
+				else{
+					n=2*height/3;
+					while((5*n-6)>corn){
+						n -= 2;
+				}
+				}
+			}		
+		return n;
+	}
+
+	int countCorn(){
+		int tmp=0;
+		while(!maulLeer()){
+			gib();
+			tmp++;
+		}
+		while(kornDa()){
+			nimm();
+		}
+		return tmp;
+	}
+	
+	int getArea(){
+		sucheEcke();
+		while(vornFrei()){
+			vor();
+			width++;
+		}
+		linksUm();
+		if(!vornFrei()){
+			drehen();
+		}
+		while(vornFrei()){
+			vor();
+			height++;
+		}
+		int Area = width * height;
+		return Area;
+	}
+	
+	void sucheEcke(){
+		while(vornFrei()){
+			vor();
+		}
+		linksUm();
+		while(vornFrei()){
+			vor();
+		}
+		linksUm();
+	}
+	
+	void drehen(){
+		linksUm();
+		linksUm();
+	}

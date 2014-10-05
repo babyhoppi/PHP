@@ -1,0 +1,44 @@
+/*imperative program*/int speicher =0;
+
+void main() {
+    rechne();
+    while(speicher <10){
+    	rechne();
+    }
+}
+
+void rechne(){
+int zahl = 0;
+	while(vornFrei()){
+		vor();
+		if(kornDa()){
+			nimm();
+			zahl++;
+		}
+	}
+	kehrt();
+	while(vornFrei()){
+		vor();
+	}
+	rechtsUm();
+	if(zahl==2){
+		speicher =1;
+	} 	else {
+			gib();
+			speicher--;
+		}
+	vor();
+	rechtsUm();
+}
+
+
+void kehrt(){
+	linksUm();
+	linksUm();
+}
+
+void rechtsUm(){
+	linksUm();
+	linksUm();
+	linksUm();
+}

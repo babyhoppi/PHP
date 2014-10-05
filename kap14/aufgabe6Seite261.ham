@@ -1,0 +1,55 @@
+/*imperative program*/int hoehe = 0;
+
+void main() {
+	laufBisMauer();
+	pruefeObRechtsFrei();
+    while(hoehe > 0){
+    	pruefeObRechtsFrei();
+    	}
+    	
+}
+
+void laufBisMauer(){
+	while( vornFrei() ) {
+		vor();
+	}
+	linksUm();
+}
+
+
+void rechtsUm() {
+	linksUm();
+	linksUm();
+	linksUm();
+}
+
+void kehrt(){
+	linksUm();
+	linksUm();
+}
+
+void pruefeObRechtsFrei(){
+	rechtsUm();	
+	if(vornFrei()) {
+		vor();
+		pruefeObLUntenFrei();
+		kehrt();
+	} else {
+		linksUm();
+		vor();
+		hoehe++;
+	}
+}
+
+void pruefeObLUntenFrei(){
+	rechtsUm();	
+	while(vornFrei()) {
+		if(hoehe > 0){
+		vor();
+		hoehe--;
+		}else {
+			break;
+		}
+	}
+}
+

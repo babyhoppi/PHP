@@ -1,0 +1,31 @@
+/*imperative program*/void main() {
+	while(vornFrei()){
+		if(linksFrei()){
+			gib();
+		}
+		vor();	
+	}
+}
+
+void rechts(){
+		linksUm();
+		linksUm();
+		linksUm();
+}
+
+boolean linksFrei(){
+	linksUm();	//der Hamster dreht nach links um zur zu prüfenden Kachel zu schauen	
+	if(vornFrei()){
+			rechts();		//wieder zurück drehen
+		return true;	//und das Ergebnis WAHR liefern	
+	}else {
+		linksUm();
+		linksUm();
+		if(vornFrei()){
+			linksUm();		//wieder zurück drehen
+		return true;
+		}
+			linksUm();		//wieder zurück drehen
+			return false;	//und das ergebnis FALSCH liefern	
+		}
+}
